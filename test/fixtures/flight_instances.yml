@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flight: one
+  scheduled_departure_at: 2026-02-08 14:29:30
+  scheduled_arrival_at: 2026-02-08 14:29:30
+  actual_departure_at: 2026-02-08 14:29:30
+  actual_arrival_at: 2026-02-08 14:29:30
+  status: 1
+
+two:
+  flight: two
+  scheduled_departure_at: 2026-02-08 14:29:30
+  scheduled_arrival_at: 2026-02-08 14:29:30
+  actual_departure_at: 2026-02-08 14:29:30
+  actual_arrival_at: 2026-02-08 14:29:30
+  status: 1

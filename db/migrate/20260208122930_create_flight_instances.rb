@@ -1,0 +1,17 @@
+class CreateFlightInstances < ActiveRecord::Migration[7.1]
+  def change
+    create_table :flight_instances do |t|
+      t.references :flight, null: false, foreign_key: true
+
+      t.datetime :scheduled_departure_at, null: false
+      t.datetime :scheduled_arrival_at, null: false
+
+      t.datetime :actual_departure_at
+      t.datetime :actual_arrival_at
+
+      t.integer :status, null: false, default: 0
+
+      t.timestamps
+    end
+  end
+end
