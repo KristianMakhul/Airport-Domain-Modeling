@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tag_number: MyString
+  weight_kg: 9.99
+  ticket: one
+
+two:
+  tag_number: MyString
+  weight_kg: 9.99
+  ticket: two
