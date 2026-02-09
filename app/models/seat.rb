@@ -7,7 +7,7 @@ class Seat < ApplicationRecord
     economy: 0,
     business: 1,
     first: 2
-  }
+  }, _prefix: :cabin
 
   validates :seat_number, presence: true
   validates :seat_number, uniqueness: { scope: :aircraft_id }

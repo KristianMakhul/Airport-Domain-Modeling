@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_02_09_075735) do
+ActiveRecord::Schema[7.1].define(version: 2026_02_09_084953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,17 @@ ActiveRecord::Schema[7.1].define(version: 2026_02_09_075735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pnr"], name: "index_bookings_on_pnr", unique: true
+  end
+
+  create_table "check_in_assignments", force: :cascade do |t|
+    t.bigint "check_in_counter_id", null: false
+    t.bigint "flight_instance_id", null: false
+    t.datetime "active_from", null: false
+    t.datetime "active_to", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["check_in_counter_id"], name: "index_check_in_assignments_on_check_in_counter_id"
+    t.index ["flight_instance_id"], name: "index_check_in_assignments_on_flight_instance_id"
   end
 
   create_table "check_in_counters", force: :cascade do |t|
@@ -160,6 +171,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_02_09_075735) do
   add_foreign_key "aircrafts", "airlines"
   add_foreign_key "baggages", "tickets"
   add_foreign_key "boarding_passes", "tickets"
+  add_foreign_key "check_in_assignments", "check_in_counters"
+  add_foreign_key "check_in_assignments", "flight_instances"
   add_foreign_key "check_in_counters", "terminals"
   add_foreign_key "flight_instances", "flights"
   add_foreign_key "flights", "airlines"
