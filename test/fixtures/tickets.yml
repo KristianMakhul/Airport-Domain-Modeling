@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking: one
+  passenger: one
+  flight_instance: one
+  seat: one
+  checked_in: false
+
+two:
+  booking: two
+  passenger: two
+  flight_instance: two
+  seat: two
+  checked_in: false
