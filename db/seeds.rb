@@ -26,23 +26,25 @@ aircraft = airline.aircrafts.create!(
   model: "Boeing 737"
 )
 
-Seat.create!(
-  seat_number: "1A",
-  cabin_class: :first,
-  aircraft: aircraft
-)
+(10..20).each do |row|
+  %w[A B C D E F].each do |letter|
+    Seat.create!(
+      seat_number: "#{row}#{letter}",
+      cabin_class: :economy,
+      aircraft: aircraft
+    )
+  end
+end
 
-Seat.create!(
-  seat_number: "12A",
-  cabin_class: :economy,
-  aircraft: aircraft
-)
-
-Seat.create!(
-  seat_number: "12B",
-  cabin_class: :economy,
-  aircraft: aircraft
-)
+(3..6).each do |row|
+  %w[A B C D].each do |letter|
+    Seat.create!(
+      seat_number: "#{row}#{letter}",
+      cabin_class: :business,
+      aircraft: aircraft
+    )
+  end
+end
 
 flight = Flight.create!(
   flight_number: "PS101",
