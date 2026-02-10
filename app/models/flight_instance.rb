@@ -23,6 +23,26 @@ class FlightInstance < ApplicationRecord
 
   private
 
+  def start_boarding!
+    raise "Invalid transition" unless scheduled?
+    update!(status: :boarding)
+  end
+
+  def depart!
+    raise "Invalid transition" unless boarding?
+    update!(status: :departed)
+  end
+
+  def arrive!
+    raise "Invalid transition" unless departed?
+    update!(status: :arrived)
+  end
+
+  def cancel!
+    raise "Cannot cancel after departure" if departed? || arrived?
+    update!(status: :cancelled)
+  end
+
   def arrival_after_departure
     return if scheduled_arrival_at > scheduled_departure_at
 
